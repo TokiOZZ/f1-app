@@ -14,6 +14,7 @@ class F1Services {
     _transformData = (res) => {
         return {
             driver: `${res.Driver.givenName} ${res.Driver.familyName}`,
+            url: res.Driver.url,
             number: res.Driver.permanentNumber,
             team: res.Constructors[0].name,
             position: res.position,
@@ -22,11 +23,11 @@ class F1Services {
         }
     }
 
-    getSeasonResults = async (seasonYear = this._baseYear) => {
+    getSeasonResults = async (seasonYear) => {
         const result = await this.getResponse(`${this._apiBase}${seasonYear}/driverStandings.json`)
         return result.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(this._transformData)
     }
 
-}
 
+}
 export default F1Services;
