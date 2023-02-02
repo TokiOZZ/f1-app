@@ -1,12 +1,13 @@
 import { Component } from "react";
 import './App.css';
-import { Button } from "antd";
+import { Button, Input } from "antd";
+import DriverList from "../driversList/DriverList";
 
 import F1Services from '../services/F1Services'
 
 class App extends Component {
     state = {
-        seasonYear: 2021,
+        seasonYear: 2022,
         driversList: []
     }
 
@@ -18,22 +19,42 @@ class App extends Component {
         })
     }
     onGettingSeasonResults = async () => {
-        let newData = await this.f1Services.getSeasonResults(2022)
+        let newData = await this.f1Services.getSeasonResults(this.state.seasonYear)
         return this.onGettingDriversList(newData)
+    }
+    onGettingSeasonYear = (year) => {
+        this.setState({
+            seasonYear: year
+        })
     }
 
 
-
     render() {
-
+        const { driversList } = this.state
         return (
             <div className="app">
-                <Button
-                    type='primary'
-                    size='large'
-                    onClick={this.onGettingSeasonResults}>
-                    Click to send request
-                </Button>
+                <Input.Group compact>
+                    <Input
+                        onChange={(e) => this.onGettingSeasonYear(e.target.value)}
+                        style={{
+                            width: '100px',
+                            margin: '20px 0 20px 50px'
+                        }}
+                        type="number"
+                        size='large'
+                        defaultValue={2022}
+                    />
+                    <Button
+                        onClick={this.onGettingSeasonResults}
+                        type="primary"
+                        size='large'
+                        style={{
+                            margin: '20px 0'
+                        }}>
+                        Get the RESULTS!
+                    </Button>
+                </Input.Group>
+                <DriverList driversList={driversList} />
             </div>
         )
     }

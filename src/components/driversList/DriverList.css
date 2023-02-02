@@ -1,0 +1,29 @@
+ .grid-container {
+     font-size: 20px;
+ }
+
+ .driverItem {
+     max-width: 1000px;
+     display: grid;
+     grid-template-columns: 2fr 5fr 4fr 1.5fr 1.5fr;
+     margin: 0 50px;
+
+ }
+
+ .driverItem div {
+     border: 2px solid black;
+     padding: 2px 5px;
+ }
+
+ .label {
+     text-align: center;
+     text-transform: uppercase;
+     background-color: grey;
+     color: white;
+ }
+
+ .driver-position,
+ .driver-points,
+ .driver-wins {
+     text-align: center;
+ }

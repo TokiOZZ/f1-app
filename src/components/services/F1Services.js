@@ -13,7 +13,7 @@ class F1Services {
 
     _transformData = (res) => {
         return {
-            driver: `${res.Driver.givenName} ${res.Driver.familyName}`,
+            name: `${res.Driver.givenName} ${res.Driver.familyName}`,
             url: res.Driver.url,
             number: res.Driver.permanentNumber,
             team: res.Constructors[0].name,
