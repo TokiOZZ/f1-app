@@ -1,6 +1,7 @@
 import { Component } from "react";
 import './App.css';
 import { Button, Input } from "antd";
+import StartingPage from "../starting-page/StartingPage";
 import DriverList from "../driversList/DriverList";
 
 import F1Services from '../services/F1Services'
@@ -33,6 +34,7 @@ class App extends Component {
         const { driversList } = this.state
         return (
             <div className="app">
+                <StartingPage />
                 <Input.Group compact>
                     <Input
                         onChange={(e) => this.onGettingSeasonYear(e.target.value)}

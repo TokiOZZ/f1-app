@@ -1,0 +1,46 @@
+.container {
+    box-sizing: border-box;
+    background: rgb(242, 8, 8);
+    background: radial-gradient(circle, rgba(242, 8, 8, 1) 44%, rgba(0, 0, 0, 1) 100%);
+}
+
+.greetings {
+    margin-top: 0;
+    padding-top: 10px;
+    text-align: center;
+    color: rgb(0, 0, 0)
+}
+
+.choosing {
+    display: grid;
+    grid-template-columns: 200px repeat(3, 1fr) 200px;
+    /* background: rgb(242, 8, 8);
+    background: radial-gradient(circle, rgba(242, 8, 8, 1) 44%, rgba(0, 0, 0, 1) 100%); */
+}
+
+.morpheus {
+    width: 100%;
+}
+
+.item-1 {
+    grid-column-start: 2;
+    justify-self: end;
+}
+
+.item-2 {
+    justify-self: center;
+}
+
+.item-3 {
+    justify-self: start;
+    margin: 0 0 -100px 25px;
+}
+
+.item-1,
+.item-3 {
+    align-self: end;
+}
+
+img {
+    width: 500px;
+}
